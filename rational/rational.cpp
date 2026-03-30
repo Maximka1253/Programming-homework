@@ -110,6 +110,22 @@ bool Rational::operator !=(const Rational& r) const {
     return !(*this == r);
 }
 
+bool Rational::operator <(const Rational& r) const {
+    return (long long)numer * r.denom < (long long)r.numer * denom;
+}
+
+bool Rational::operator >(const Rational& r) const {
+    return r < *this;
+}
+
+bool Rational::operator <=(const Rational& r) const {
+    return !(*this > r);
+}
+
+bool Rational::operator >=(const Rational& r) const {
+    return !(*this < r);
+}
+
 Rational::operator int() const {
     return numer / denom;
 }

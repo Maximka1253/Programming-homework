@@ -34,6 +34,10 @@ public:
 
     bool operator ==(const Rational& r) const;
     bool operator !=(const Rational& r) const;
+    bool operator <(const Rational& r) const;
+    bool operator >(const Rational& r) const;
+    bool operator <=(const Rational& r) const;
+    bool operator >=(const Rational& r) const;
 
     operator int() const;
     operator double() const;

@@ -27,5 +27,13 @@ int main() {
     else
         cout << "Правильно!" << endl;
 
+    cout << boolalpha;
+    Rational x(1,3), y(2,5);
+    cout << "x=" << x << " y=" << y << endl;
+    cout << "x < y: " << (x < y) << endl;
+    cout << "x > y: " << (x > y) << endl;
+    cout << "x <= y: " << (x <= y) << endl;
+    cout << "x >= y: " << (x >= y) << endl;
+
     return 0;
 }
