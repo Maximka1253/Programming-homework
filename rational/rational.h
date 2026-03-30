@@ -34,6 +34,11 @@ public:
 
     bool operator ==(const Rational& r) const;
     bool operator !=(const Rational& r) const;
+    bool operator <(const Rational& r) const;
+    bool operator >(const Rational& r) const;
+    bool operator <=(const Rational& r) const;
+    bool operator >=(const Rational& r) const;
+
 
     operator int() const;
     operator double() const;
@@ -41,5 +46,7 @@ public:
     friend std::istream& operator >>(std::istream& in, Rational& r);
     friend std::ostream& operator <<(std::ostream& out, const Rational& r);
 };
+
+void QuadUravnenie(Rational a, Rational b, Rational c);
 
 #endif

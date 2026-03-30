@@ -27,5 +27,25 @@ int main() {
     else
         cout << "Правильно!" << endl;
 
+    cout << boolalpha;
+    Rational x(1,3), y(2,5);
+    cout << "x=" << x << " y=" << y << endl;
+    cout << "x < y: " << (x < y) << endl;
+    cout << "x > y: " << (x > y) << endl;
+    cout << "x <= y: " << (x <= y) << endl;
+    cout << "x >= y: " << (x >= y) << endl;
+
+    Rational qa, qb, qc;
+    cout << "Введите коэффициенты квадратного уравнения ax^2 + bx + c = 0" << endl;
+    cout << "Формат для каждого коэффициента: m n (например, 3 2 для 3/2)" << endl;
+    cout << "Введите a: ";
+    cin >> qa;
+    cout << "Введите b: ";
+    cin >> qb;
+    cout << "Введите c: ";
+    cin >> qc;
+    cout << "Решаем уравнение: " << qa << "*x^2 + (" << qb << ")*x + " << qc << " = 0" << endl;
+    QuadUravnenie(qa, qb, qc);
+
     return 0;
 }

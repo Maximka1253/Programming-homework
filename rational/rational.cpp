@@ -1,6 +1,5 @@
 #include "rational.h"
 #include <cmath>
-#include <utility>
 
 using namespace std;
 
@@ -110,6 +109,22 @@ bool Rational::operator !=(const Rational& r) const {
     return !(*this == r);
 }
 
+bool Rational::operator <(const Rational& r) const {
+    return (long long)numer * r.denom < (long long)r.numer * denom;
+}
+
+bool Rational::operator >(const Rational& r) const {
+    return r < *this;
+}
+
+bool Rational::operator <=(const Rational& r) const {
+    return !(*this > r);
+}
+
+bool Rational::operator >=(const Rational& r) const {
+    return !(*this < r);
+}
+
 Rational::operator int() const {
     return numer / denom;
 }
@@ -127,4 +142,34 @@ istream& operator >>(istream& in, Rational& r) {
 ostream& operator <<(ostream& out, const Rational& r) {
     out << r.numer << "/" << r.denom;
     return out;
+}
+
+void QuadUravnenie(Rational a, Rational b, Rational c) {
+    const Rational zero(0), two(2), four(4);
+
+    if (a == zero) {
+        if (b == zero) {
+            cout << (c == zero ? "Бесконечно много решений." : "Решений нет.") << endl;
+            return;
+        }
+        cout << "Линейное уравнение, x = " << static_cast<double>((-c) / b) << endl;
+        return;
+    }
+
+    const double d = static_cast<double>(b * b - four * a * c);
+    if (d < 0.0) {
+        cout << "Действительных корней нет." << endl;
+        return;
+    }
+
+    const double denom = static_cast<double>(two * a);
+    const double minusB = static_cast<double>(-b);
+    if (d == 0.0) {
+        cout << "Один корень: x = " << (minusB / denom) << endl;
+        return;
+    }
+
+    const double sqrtD = sqrt(d);
+    cout << "Два корня: x1 = " << (minusB + sqrtD) / denom
+         << ", x2 = " << (minusB - sqrtD) / denom << endl;
 }
